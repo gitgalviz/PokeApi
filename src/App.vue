@@ -26,11 +26,15 @@
           <p><q-icon name="warning" /> VIDA "{{ hp }}"</p>
           <q-linear-progress size="10px" :value="hp2" color="red" />
           <p><q-icon name="warning" /> ATAQUE "{{ ataque }}"</p>
-          <q-linear-progress rounded size="20px" :value="ataque2" color="blue" class="q-mt-sm" />
-          <p><q-icon name="warning" /> ALTURA "{{ altura }}"</p>
-          <q-linear-progress rounded size="15px" :value="altura2" color="orange" class="q-mt-sm" />
-          <p><q-icon name="warning" /> PESO "{{ peso }}"</p>
-          <q-linear-progress size="25px" :value="peso2" color="yellow" class="q-mt-sm" />
+          <q-linear-progress size="10px" :value="ataque2" color="blue" />
+          <p><q-icon name="warning" /> DEFENSA "{{ defensa }}"</p>
+          <q-linear-progress size="10px" :value="defensa2" color="purple" />
+          <p><q-icon name="warning" /> ATAQUE-ESPECIAL "{{ ataque_especial }}"</p>
+          <q-linear-progress size="10px" :value="ataque_especial2" color="green" />
+          <p><q-icon name="warning" /> VELOCIDAD "{{ velocidad }}"</p>
+          <q-linear-progress size="10px" :value="velocidad2" color="black" />
+          <p><q-icon name="warning" /> DEFENSA-ESPECIAL "{{ defensa_especial }}"</p>
+          <q-linear-progress size="10px" :value="defensa_especial2" color="pink" />
         </div>
       </div>
     </div>
@@ -49,10 +53,14 @@ let hp = ref(0)
 let hp2 = ref(0)
 let ataque = ref(0)
 let ataque2 = ref(0)
-let altura = ref(0)
-let altura2 = ref(0)
-let peso = ref(0)
-let peso2 = ref(0)
+let defensa = ref(0)
+let defensa2 = ref(0)
+let ataque_especial = ref(0)
+let ataque_especial2 = ref(0)
+let defensa_especial = ref(0)
+let defensa_especial2 = ref(0)
+let velocidad = ref(0)
+let velocidad2 = ref(0)
 let id = ref(0)
 
 let img = ref('')
@@ -72,11 +80,17 @@ async function traer() {
     ataque.value = pokemon.value.stats[1].base_stat
     ataque2.value = ataque.value / 100
 
-    altura.value = pokemon.value.weight
-    altura2.value = altura.value / 100
+    defensa.value = pokemon.value.stats[2].base_stat
+    defensa2.value = pokemon.value.stats[2].base_stat/ 100
 
-    peso.value = pokemon.value.height
-    peso2.value = peso.value / 100
+    ataque_especial.value = pokemon.value.stats[3].base_stat
+    ataque_especial2.value = pokemon.value.stats[3].base_stat/ 100
+
+    defensa_especial.value = pokemon.value.stats[4].base_stat
+    defensa_especial2.value = pokemon.value.stats[4].base_stat/ 100
+
+    velocidad.value =pokemon.value.stats[5].base_stat
+    velocidad2.value =pokemon.value.stats[5].base_stat/ 100
 
     img.value = pokemon.value.sprites.other.dream_world.front_default
   } catch (error) {
